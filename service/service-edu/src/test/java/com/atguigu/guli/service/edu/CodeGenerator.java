@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class CodeGenerator {
 
-    @Test
+/*    @Test
     public void genCode() {
 
         String prefix = "";//用来拼接连接数据库的url地址数据库名称的、根据实际修改
@@ -86,5 +86,5 @@ public class CodeGenerator {
 
         // 6、执行
         mpg.execute();
-    }
+    }*/
 }

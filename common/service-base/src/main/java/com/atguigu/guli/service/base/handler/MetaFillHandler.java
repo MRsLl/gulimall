@@ -6,6 +6,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
+/**
+ * 自动填充处理类
+ */
 @Component
 public class MetaFillHandler implements MetaObjectHandler {
 

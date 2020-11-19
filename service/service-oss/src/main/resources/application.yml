@@ -1,0 +1,20 @@
+server:
+  port: 8120 # 服务端口
+
+spring:
+  profiles:
+    active: dev # 环境设置
+  application:
+    name: service-oss # 服务名
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+aliyun:
+  oss:
+    protocol: http:// #网络协议
+    endPoint: oss-cn-shanghai.aliyuncs.com #阿里云节点
+    keyId: LTAI4G1w6fep9osSRpPDUKhk #阿里云账户 keyid
+    keySecret: 2sM5g0U3T64Rt4wpUAlj94gP9EbIu8 #阿里云账户密码 keysecret
+    #bucket可以在控制台创建，也可以使用java代码创建，注意先测试bucket是否已被占用
+    bucketName: gulimall-edu-file

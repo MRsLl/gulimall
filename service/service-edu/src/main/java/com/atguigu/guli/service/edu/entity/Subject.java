@@ -6,6 +6,7 @@ import com.atguigu.guli.service.base.model.BaseEntity;
 import com.baomidou.mybatisplus.annotation.TableId;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -35,6 +36,5 @@ public class Subject extends BaseEntity {
 
     @ApiModelProperty(value = "排序字段")
     private Integer sort;
-
 
 }
