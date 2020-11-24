@@ -1,7 +1,14 @@
 package com.atguigu.guli.service.edu.service;
 
 import com.atguigu.guli.service.edu.entity.Course;
+import com.atguigu.guli.service.edu.entity.form.CourseInfoForm;
+import com.atguigu.guli.service.edu.entity.query.CourseQuery;
+import com.atguigu.guli.service.edu.entity.vo.CoursePublishVo;
+import com.atguigu.guli.service.edu.entity.vo.CourseVo;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +20,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface CourseService extends IService<Course> {
 
+    String saveCourseInfo(CourseInfoForm courseInfoForm);
+
+    IPage<CourseVo> listCourseByPage(Integer page, Integer limit, CourseQuery courseQuery);
+
+    boolean removeCoverById(String id);
+
+    boolean removeVideoById(String id);
+
+    boolean removeCourseById(String id);
+
+    CoursePublishVo getCoursePublishById(String id);
+
+    boolean publishCourseById(String id);
 }

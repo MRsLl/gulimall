@@ -6,8 +6,10 @@ import org.apache.ibatis.annotations.Mapper;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
+@EnableTransactionManagement //启用声明式事务
 @MapperScan(basePackages = "com.atguigu.guli.service.*.mapper")
 public class MybatisPlusConfig {
     /**

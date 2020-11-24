@@ -30,6 +30,7 @@ spring:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:/com/atguigu/guli/service/edu/mapper/xml/*.xml
 ribbon:
   ConnectTimeout: 5000 #连接建立的超时时长，默认1秒
   ReadTimeout: 5000 #处理请求的超时时间，默认为1秒

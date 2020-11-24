@@ -4,11 +4,9 @@ package com.atguigu.guli.service.edu.controller.admin;
 import com.atguigu.guli.service.base.result.R;
 import com.atguigu.guli.service.edu.entity.Teacher;
 import com.atguigu.guli.service.edu.entity.query.TeacherQuery;
-import com.atguigu.guli.service.edu.feign.OssFileService;
 import com.atguigu.guli.service.edu.service.TeacherService;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +26,8 @@ import java.util.Map;
 //解决浏览器同源问题
 @CrossOrigin
 @RestController
+@Api(tags = "讲师管理")
 @RequestMapping("/admin/edu/teacher")
-@ApiModel("讲师方法")
 public class AdminTeacherController {
     @Autowired
     private TeacherService teacherService;

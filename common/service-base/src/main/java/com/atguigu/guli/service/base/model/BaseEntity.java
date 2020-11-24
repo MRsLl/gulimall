@@ -16,8 +16,7 @@ import java.util.Date;
 public class BaseEntity {
 
     @ApiModelProperty(value = "ID")
-    //使用雪花算法生成id
-    @TableId(type = IdType.ASSIGN_ID)
+    //默认使用雪花算法生成id
     private String id;
 
     @ApiModelProperty(value = "创建时间")
