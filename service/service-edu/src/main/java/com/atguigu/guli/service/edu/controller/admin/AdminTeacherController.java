@@ -24,7 +24,7 @@ import java.util.Map;
  * @since 2020-11-10
  */
 //解决浏览器同源问题
-@CrossOrigin
+
 @RestController
 @Api(tags = "讲师管理")
 @RequestMapping("/admin/edu/teacher")

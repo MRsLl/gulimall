@@ -1,9 +1,11 @@
 package com.atguigu.guli.service.edu.service.impl;
 
 import com.atguigu.guli.service.base.result.R;
+import com.atguigu.guli.service.edu.entity.Course;
 import com.atguigu.guli.service.edu.entity.Teacher;
 import com.atguigu.guli.service.edu.entity.query.TeacherQuery;
 import com.atguigu.guli.service.edu.feign.OssFileService;
+import com.atguigu.guli.service.edu.mapper.CourseMapper;
 import com.atguigu.guli.service.edu.mapper.TeacherMapper;
 import com.atguigu.guli.service.edu.service.TeacherService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -14,7 +16,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -28,6 +32,10 @@ import java.util.Map;
  */
 @Service
 public class TeacherServiceImpl extends ServiceImpl<TeacherMapper, Teacher> implements TeacherService {
+
+    @Resource
+    private CourseMapper courseMapper;
+
 
     /**
      * 按条件分页查询讲师列表
@@ -127,5 +135,26 @@ public class TeacherServiceImpl extends ServiceImpl<TeacherMapper, Teacher> impl
         }
 
         return false;
+    }
+
+    /*根据讲师id 获取讲师及其授课信息
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public Map<String, Object> selectTeacherInfoById(String id) {
+        Map<String, Object> map = new HashMap<>();
+
+        Teacher teacher = baseMapper.selectById(id);
+        map.put("teacher",teacher);
+
+        QueryWrapper<Course> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("teacher_id",id);
+
+        List<Course> courseList = courseMapper.selectList(queryWrapper);
+        map.put("courseList",courseList);
+
+        return map;
     }
 }

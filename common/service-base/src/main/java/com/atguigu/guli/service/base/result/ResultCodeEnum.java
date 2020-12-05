@@ -25,6 +25,7 @@ public enum ResultCodeEnum {
     FETCH_VIDEO_UPLOADAUTH_ERROR(false, 22004, "获取上传地址和凭证失败"),
     REFRESH_VIDEO_UPLOADAUTH_ERROR(false, 22005, "刷新上传地址和凭证失败"),
     FETCH_PLAYAUTH_ERROR(false, 22006, "获取播放凭证失败"),
+    FETCH_PLAYURL_ERROR(false, 22007, "获取播放地址失败"),
 
     URL_ENCODE_ERROR(false, 23001, "URL编码失败"),
     ILLEGAL_CALLBACK_REQUEST_ERROR(false, 23002, "非法回调请求"),
@@ -53,7 +54,10 @@ public enum ResultCodeEnum {
     LOGIN_ACL(false, 28005, "没有权限"),
     SMS_SEND_ERROR(false, 28006, "短信发送失败"),
     SMS_SEND_ERROR_BUSINESS_LIMIT_CONTROL(false, 28007, "短信发送过于频繁"),
-    DATA_INTEGRITY_VIOLATION_ERROR(false, 28008, "课程描述长度超出限制");
+    DATA_INTEGRITY_VIOLATION_ERROR(false, 28008, "课程描述长度超出限制"),
+    REMOTE_CALL_ERROR(false,28009,"远程调用失败")
+    ;
+
 
     private Boolean success;
     private Integer code;

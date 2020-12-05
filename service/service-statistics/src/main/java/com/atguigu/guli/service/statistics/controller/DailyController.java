@@ -40,7 +40,7 @@ public class DailyController {
                        @PathVariable String end){
         Map<String,Map> chartMap = dailyService.showChart(begin,end);
 
-        return R.ok().data("chartData",chartMap);
+        return R.ok().data("chartMap",chartMap);
     }
 }
 

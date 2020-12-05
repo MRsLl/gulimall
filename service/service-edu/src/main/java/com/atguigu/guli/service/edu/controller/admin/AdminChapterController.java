@@ -5,6 +5,7 @@ import com.atguigu.guli.service.base.result.R;
 import com.atguigu.guli.service.edu.entity.Chapter;
 import com.atguigu.guli.service.edu.entity.vo.ChapterVo;
 import com.atguigu.guli.service.edu.service.ChapterService;
+import com.atguigu.guli.service.edu.service.VideoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import jdk.nashorn.internal.runtime.logging.Logger;
@@ -22,7 +23,7 @@ import java.util.List;
  * @since 2020-11-10
  */
 @Api(tags = "章节管理")
-@CrossOrigin
+
 @RestController
 @RequestMapping("/admin/edu/chapter")
 public class AdminChapterController {
@@ -30,12 +31,15 @@ public class AdminChapterController {
     @Autowired
     private ChapterService chapterService;
 
+    @Autowired
+    private VideoService videoService;
 
-    @ApiOperation("根据id 删除章节")
+    @ApiOperation("根据id 删除章节及所有课时")
     @DeleteMapping("removeById/{id}")
     public R removeById(@PathVariable String id){
-        //删除 vod 上视频
-        //删除章节和相应课时
+        //根据chapterId 从 vod 中删除视频
+        videoService.removeMediaVideoByChapterId(id);
+
         boolean b = chapterService.removeChapterById(id);
 
         if (b) {

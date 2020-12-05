@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
+@EnableTransactionManagement //启用声明式事务
 @ComponentScan(basePackages = "com.atguigu.guli")
 public class ServiceEduApplication {
     public static void main(String[] args) {

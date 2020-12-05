@@ -13,4 +13,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface VideoService extends IService<Video> {
 
+    boolean removeVideoById(String id);
+
+    void removeMediaVideoByCourseId(String courseId);
+
+    void removeMediaVideoByChapterId(String chapterId);
 }

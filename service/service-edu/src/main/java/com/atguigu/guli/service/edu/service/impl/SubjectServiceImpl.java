@@ -11,7 +11,6 @@ import com.atguigu.guli.service.edu.mapper.SubjectMapper;
 import com.atguigu.guli.service.edu.service.SubjectService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.InputStream;
@@ -65,11 +64,7 @@ public class SubjectServiceImpl extends ServiceImpl<SubjectMapper, Subject> impl
                 if (levelOneSubjectVo != null) {
                     SubjectVo subjectVo = new SubjectVo();
                     BeanUtils.copyProperties(subject,subjectVo);
-//                    List<SubjectVo> children = levelOneSubjectVo.getChildren();
-//                    children.add(subjectVo);
-//                    levelOneSubjectVo.setChildren(children);
                     levelOneSubjectVo.getChildren().add(subjectVo);
-//                    System.out.println("vo 中" + levelOneSubjectVo.getChildren());
                 }
             }
         }

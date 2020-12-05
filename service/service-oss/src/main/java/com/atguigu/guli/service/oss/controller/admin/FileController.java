@@ -15,7 +15,7 @@ import java.util.List;
 
 @Api(tags = "阿里云文件管理")
 @Slf4j
-@CrossOrigin
+
 @RestController
 @RequestMapping("/admin/oss/file")
 public class FileController {

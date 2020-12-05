@@ -10,6 +10,7 @@ import com.atguigu.guli.service.edu.entity.vo.CoursePublishVo;
 import com.atguigu.guli.service.edu.entity.vo.CourseVo;
 import com.atguigu.guli.service.edu.service.CourseDescriptionService;
 import com.atguigu.guli.service.edu.service.CourseService;
+import com.atguigu.guli.service.edu.service.VideoService;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -29,7 +30,7 @@ import java.util.List;
  * @since 2020-11-10
  */
 @Api(tags = "课程管理")
-@CrossOrigin
+
 @RestController
 @RequestMapping("/admin/edu/course")
 public class AdminCourseController {
@@ -37,6 +38,9 @@ public class AdminCourseController {
     private CourseService courseService;
     @Autowired
     private CourseDescriptionService courseDescriptionService;
+
+    @Autowired
+    private VideoService videoService;
 
     @ApiOperation("根据id 发布课程")
     @PutMapping("publishCourseById/{id}")
@@ -60,7 +64,7 @@ public class AdminCourseController {
     @DeleteMapping("removeById/{id}")
     public R removeById(@PathVariable String id){
         //vod 删除视频
-        courseService.removeVideoById(id);
+        videoService.removeMediaVideoByCourseId(id);
         //oss 删除封面图片
         courseService.removeCoverById(id);
 

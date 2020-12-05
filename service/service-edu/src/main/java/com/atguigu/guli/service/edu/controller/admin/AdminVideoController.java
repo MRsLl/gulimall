@@ -3,11 +3,14 @@ package com.atguigu.guli.service.edu.controller.admin;
 
 import com.atguigu.guli.service.base.result.R;
 import com.atguigu.guli.service.edu.entity.Video;
+import com.atguigu.guli.service.edu.feign.VodMediaService;
 import com.atguigu.guli.service.edu.service.VideoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * <p>
@@ -18,7 +21,7 @@ import org.springframework.web.bind.annotation.*;
  * @since 2020-11-10
  */
 @Api(tags = "课时管理")
-@CrossOrigin
+
 @RestController
 @RequestMapping("/admin/edu/video")
 public class AdminVideoController {
@@ -27,9 +30,11 @@ public class AdminVideoController {
     private VideoService videoService;
 
     @ApiOperation("根据id 删除课时")
-    @DeleteMapping("removeVideoById/{videoId}")
-    public R removeVideoById(@PathVariable String videoId){
-        boolean b = videoService.removeById(videoId);
+    @DeleteMapping("removeVideoById/{id}")
+    public R removeVideoById(@PathVariable String id){
+
+        boolean b = videoService.removeVideoById(id);
+
         if (b) {
             return R.ok().message("删除成功");
         } else {
